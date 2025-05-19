@@ -1,0 +1,20 @@
+This project integrates advanced Retrieval-Augmented Generation (RAG) techniques to significantly enhance the relevance and quality of AI-generated answers from YouTube video transcripts.
+
+✅ Techniques Implemented
+1. 🔄 Multi-Query Retrieval
+Instead of relying on a single user query, the system generates multiple semantically diverse queries to capture different facets of the user’s intent. This increases the chance of retrieving relevant information from the transcript.
+
+2. 🧹 Compression Retriever
+Used a contextual compression retriever to filter retrieved chunks. This step eliminates irrelevant or redundant information before sending it to the LLM, reducing prompt noise and improving answer accuracy.
+
+3. 📌 Grounded Prompting
+Answers are strictly grounded in retrieved transcript chunks to avoid hallucination. The model is explicitly instructed to reference only the provided context for factual integrity.
+
+4. 🧱 Chunk Overlap with Sliding Window
+Transcripts are chunked using a sliding window with overlap, preserving context continuity between adjacent sections.
+
+5. ⚡ Vector Store Optimization (FAISS)
+Indexed transcript chunks in FAISS using SentenceTransformers embeddings (all-MiniLM-L6-v2) for efficient and semantically accurate retrieval.
+
+6. 🛠️ LangChain Retriever Composition
+Combined retrievers using MultiQueryRetriever, ContextualCompressionRetriever, and FAISS to build a powerful and layered document retrieval pipeline.
